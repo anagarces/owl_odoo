@@ -2,13 +2,18 @@
 <templates xml:space="preserve">
 
     <t t-name="awesome_dashboard.AwesomeDashboard">
-        <Layout display="display" className="'o_dashboard h-100'">
-            <t t-set-slot="layout-buttons">
-                <button class="btn btn-primary" t-on-click="openCustomers">Customers</button>
-                <button class="btn btn-primary" t-on-click="openLeads">Leads</button>
-            </t>
-            hello dashboard
-        </Layout>
+    <Layout display="display" className="'o_dashboard h-100'">
+    <t t-set-slot="layout-buttons">
+        <button class="btn btn-primary" t-on-click="openCustomers">Customers</button>
+        <button class="btn btn-primary" t-on-click="openLeads">Leads</button>
+    </t>
+    <DashboardItem>
+        <p>Contenido de la primera tarjeta, sin size (usa el default 1).</p>
+    </DashboardItem>
+    <DashboardItem size="2">
+        <p>Contenido de la segunda tarjeta, más ancha (size 2).</p>
+    </DashboardItem>
+</Layout>
     </t>
 
 </templates>
