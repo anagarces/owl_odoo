@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
-
-    <t t-name="awesome_dashboard.AwesomeDashboard">
+<t t-name="awesome_dashboard.AwesomeDashboard">
     <Layout display="display" className="'o_dashboard h-100'">
-    <t t-set-slot="layout-buttons">
-        <button class="btn btn-primary" t-on-click="openCustomers">Customers</button>
-        <button class="btn btn-primary" t-on-click="openLeads">Leads</button>
-    </t>
-    <DashboardItem>
-        <p>Contenido de la primera tarjeta, sin size (usa el default 1).</p>
-    </DashboardItem>
-    <DashboardItem size="2">
-        <p>Contenido de la segunda tarjeta, más ancha (size 2).</p>
-    </DashboardItem>
-</Layout>
-    </t>
+        <t t-set-slot="layout-buttons">
+            <button class="btn btn-primary" t-on-click="openCustomers">Customers</button>
+            <button class="btn btn-primary" t-on-click="openLeads">Leads</button>
+        </t>
+        <DashboardItem>
+            <p>Orders: <t t-esc="statistics.order_count"/></p>
+        </DashboardItem>
+        <DashboardItem>
+            <p>Total: <t t-esc="statistics.total_amount"/></p>
+        </DashboardItem>
+        <DashboardItem>
+            <p>Average t-shirts/order: <t t-esc="statistics.average_quantity"/></p>
+        </DashboardItem>
+        <DashboardItem>
+            <p>Cancelled: <t t-esc="statistics.cancelled_order_count"/></p>
+        </DashboardItem>
+        <DashboardItem>
+            <p>Avg. delivery time (days): <t t-esc="statistics.average_time"/></p>
+        </DashboardItem>
+    </Layout>
+</t>
 
 </templates>
