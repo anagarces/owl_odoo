@@ -7,7 +7,7 @@
             <button class="btn btn-primary" t-on-click="openLeads">Leads</button>
         </t>
         <DashboardItem>
-            <p>Orders: <t t-esc="statistics.order_count"/></p>
+            <p>Orders: <t t-esc="statistics.nb_new_orders"/></p>
         </DashboardItem>
         <DashboardItem>
             <p>Total: <t t-esc="statistics.total_amount"/></p>
@@ -16,11 +16,14 @@
             <p>Average t-shirts/order: <t t-esc="statistics.average_quantity"/></p>
         </DashboardItem>
         <DashboardItem>
-            <p>Cancelled: <t t-esc="statistics.cancelled_order_count"/></p>
+            <p>Cancelled: <t t-esc="statistics.nb_cancelled_orders"/></p>
         </DashboardItem>
         <DashboardItem>
             <p>Avg. delivery time (days): <t t-esc="statistics.average_time"/></p>
         </DashboardItem>
+        <DashboardItem size="2">
+    <PieChart data="statistics.orders_by_size"/>
+</DashboardItem>
     </Layout>
 </t>
 
