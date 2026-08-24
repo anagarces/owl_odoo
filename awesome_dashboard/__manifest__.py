@@ -23,10 +23,12 @@
     ],
     'assets': {
         'web.assets_backend': [
-        'awesome_dashboard/static/src/dashboard_action.js',
-    ],
-        'web.assets_backend': [
-            'awesome_dashboard/static/src/**/*',
+            'awesome_dashboard/static/src/dashboard_action.js',
+            'awesome_dashboard/static/src/dashboard/services/statistics_service.js',
+        ],
+        'awesome_dashboard.dashboard': [
+            'awesome_dashboard/static/src/dashboard/**/*',
+            ('remove', 'awesome_dashboard/static/src/dashboard/services/statistics_service.js'),
         ],
     },
     'license': 'AGPL-3'

@@ -5,25 +5,16 @@
         <t t-set-slot="layout-buttons">
             <button class="btn btn-primary" t-on-click="openCustomers">Customers</button>
             <button class="btn btn-primary" t-on-click="openLeads">Leads</button>
+            <button class="btn btn-secondary" t-on-click="openSettings" title="Dashboard settings">
+                <i class="fa fa-cog"/>
+            </button>
         </t>
-        <DashboardItem>
-            <p>Orders: <t t-esc="statistics.nb_new_orders"/></p>
+        <t t-foreach="items" t-as="item" t-key="item.id">
+        <DashboardItem size="item.size || 1">
+            <t t-set="itemProp" t-value="item.props ? item.props(statistics) : {'data': statistics}"/>
+            <t t-component="item.Component" t-props="itemProp"/>
         </DashboardItem>
-        <DashboardItem>
-            <p>Total: <t t-esc="statistics.total_amount"/></p>
-        </DashboardItem>
-        <DashboardItem>
-            <p>Average t-shirts/order: <t t-esc="statistics.average_quantity"/></p>
-        </DashboardItem>
-        <DashboardItem>
-            <p>Cancelled: <t t-esc="statistics.nb_cancelled_orders"/></p>
-        </DashboardItem>
-        <DashboardItem>
-            <p>Avg. delivery time (days): <t t-esc="statistics.average_time"/></p>
-        </DashboardItem>
-        <DashboardItem size="2">
-    <PieChart data="statistics.orders_by_size"/>
-</DashboardItem>
+    </t>
     </Layout>
 </t>
 

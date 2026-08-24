@@ -8,7 +8,7 @@ export class DashboardItem extends Component {
         size: { type: Number, optional: true },
         slots: { type: Object, optional: true },
     };
-    
+
     static defaultProps = {
         size: 1,
     };
